@@ -14,6 +14,9 @@
 		"ls_adls_covidreportingadlsarul_properties_typeProperties_url": {
 			"value": "https://covidreportingadlsarul.dfs.core.windows.net/"
 		},
+		"tr_ingest_population_data_properties_typeProperties_scope": {
+			"value": "/subscriptions/9375241b-9174-441d-968f-9d20ec340520/resourceGroups/covid-reporting-rg/providers/Microsoft.Storage/storageAccounts/covidreportingsaarul"
+		},
 		"containerUri": {
 			"value": ""
 		},

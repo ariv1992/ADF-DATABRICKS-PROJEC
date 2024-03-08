@@ -19,17 +19,13 @@
 			"type": "string",
 			"defaultValue": "https://covidreportingadlsarul.dfs.core.windows.net/"
 		},
-		"ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
+		"ls_http_opendata_ecdc_eu_fixed_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "@{linkedService().sourceBaseURL}"
 		},
-		"tr_ingest_hospital_admissions_data_properties_pl_ingest_ecdc_data_parameters_sourceRelativeURL": {
+		"ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "cloudboxacademy/covid19/blob/main/ecdc_data/hospital_admissions.csv"
-		},
-		"tr_ingest_hospital_admissions_data_properties_pl_ingest_ecdc_data_parameters_sinkFileName": {
-			"type": "string",
-			"defaultValue": "hospital_admissions.csv"
+			"defaultValue": "@{linkedService().sourceBaseURL}"
 		},
 		"tr_ingest_population_data_properties_typeProperties_scope": {
 			"type": "string",
@@ -71,14 +67,11 @@
 					"ls_adls_covidreportingadlsarul_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_covidreportingadlsarul_properties_typeProperties_url')]"
 					},
+					"ls_http_opendata_ecdc_eu_fixed_properties_typeProperties_url": {
+						"value": "[parameters('ls_http_opendata_ecdc_eu_fixed_properties_typeProperties_url')]"
+					},
 					"ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
 						"value": "[parameters('ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url')]"
-					},
-					"tr_ingest_hospital_admissions_data_properties_pl_ingest_ecdc_data_parameters_sourceRelativeURL": {
-						"value": "[parameters('tr_ingest_hospital_admissions_data_properties_pl_ingest_ecdc_data_parameters_sourceRelativeURL')]"
-					},
-					"tr_ingest_hospital_admissions_data_properties_pl_ingest_ecdc_data_parameters_sinkFileName": {
-						"value": "[parameters('tr_ingest_hospital_admissions_data_properties_pl_ingest_ecdc_data_parameters_sinkFileName')]"
 					},
 					"tr_ingest_population_data_properties_typeProperties_scope": {
 						"value": "[parameters('tr_ingest_population_data_properties_typeProperties_scope')]"

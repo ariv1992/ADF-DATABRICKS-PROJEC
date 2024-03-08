@@ -2,16 +2,15 @@
 	"name": "ds_ecdc_file_list",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_ablob_covidreportingsaarul",
+			"referenceName": "ls_http_opendata_ecdc_eu_fixed",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
-				"fileName": "ecdc_file_list_for_2_files.json",
-				"container": "configs"
+				"type": "HttpServerLocation",
+				"relativeUrl": "github_ecdc_file_list.json"
 			}
 		},
 		"schema": {

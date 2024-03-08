@@ -1,5 +1,5 @@
 {
-	"name": "ls_http_opendata_ecdc_europa_eu",
+	"name": "ls_http_opendata_ecdc_eu_fixed",
 	"properties": {
 		"parameters": {
 			"sourceBaseURL": {

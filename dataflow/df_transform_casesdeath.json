@@ -10,9 +10,6 @@
 						"type": "DatasetReference"
 					},
 					"name": "CasesAndDeathSource"
-				},
-				{
-					"name": "source1"
 				}
 			],
 			"sinks": [],
@@ -28,7 +25,7 @@
 				"          continent as string,",
 				"          population as integer,",
 				"          indicator as string,",
-				"          daily_count as integer,",
+				"          daily_count as short,",
 				"          date as date,",
 				"          rate_14_day as double,",
 				"          source as string",
@@ -36,8 +33,6 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> CasesAndDeathSource",
-				"source(allowSchemaDrift: true,",
-				"     validateSchema: false) ~> source1",
 				"CasesAndDeathSource filter(continent == 'Europe' && not(IsNull(country_code))) ~> filterEuropeOnly"
 			]
 		}

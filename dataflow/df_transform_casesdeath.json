@@ -38,7 +38,7 @@
 				"     ignoreNoFilesFound: false) ~> CasesAndDeathSource",
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false) ~> source1",
-				"CasesAndDeathSource filter(ERROR_FUNCTION('')) ~> filterEuropeOnly"
+				"CasesAndDeathSource filter(continent == 'Europe' && not(IsNull(country_code))) ~> filterEuropeOnly"
 			]
 		}
 	}

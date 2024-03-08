@@ -3,12 +3,19 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Stopped",
-		"pipelines": [],
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pl_ingest_ecdc_data",
+					"type": "PipelineReference"
+				}
+			}
+		],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
 				"frequency": "Minute",
-				"interval": 15,
+				"interval": 1,
 				"startTime": "2024-03-08T10:50:00",
 				"timeZone": "GMT Standard Time"
 			}

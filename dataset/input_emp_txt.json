@@ -1,0 +1,30 @@
+{
+	"name": "input_emp_txt",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adlsindusind_ls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "inputEmp_tq.txt",
+				"folderPath": "source",
+				"fileSystem": "data"
+			},
+			"columnDelimiter": "|",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "\"FirstName\"|\"LastName\"",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

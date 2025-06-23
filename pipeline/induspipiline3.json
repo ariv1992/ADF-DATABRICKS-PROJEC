@@ -1,0 +1,92 @@
+{
+	"name": "induspipiline3",
+	"properties": {
+		"activities": [
+			{
+				"name": "Get Metadata List Acitivy",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "input_emp_txt",
+						"type": "DatasetReference"
+					},
+					"fieldList": [
+						"lastModified",
+						"size",
+						"itemName"
+					],
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
+						"enablePartitionDiscovery": false
+					},
+					"formatSettings": {
+						"type": "DelimitedTextReadSettings"
+					}
+				}
+			},
+			{
+				"name": "Stored procedure",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Get Metadata List Acitivy",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[usp_InsertLastModifiedDate]",
+					"storedProcedureParameters": {
+						"FileName": {
+							"value": {
+								"value": "@activity('Get Metadata List Acitivy').output.itemName",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"ModifiedDate": {
+							"value": {
+								"value": "@activity('Get Metadata List Acitivy').output.lastModified",
+								"type": "Expression"
+							},
+							"type": "DateTime"
+						},
+						"RecordInsertDate": {
+							"value": {
+								"value": "@convertFromUtc(utcnow(),'Eastern Standard Time' )",
+								"type": "Expression"
+							},
+							"type": "DateTime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2025-06-23T04:46:44Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
